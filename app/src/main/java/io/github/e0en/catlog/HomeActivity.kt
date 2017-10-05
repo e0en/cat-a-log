@@ -16,13 +16,9 @@ class HomeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_home)
         setSupportActionBar(toolbar)
 
-        fab.setOnClickListener { view ->
-            write(view)
+        fab.setOnClickListener { _ ->
+            val intent = Intent(this, WriteActivity::class.java)
+            startActivity(intent)
         }
-    }
-
-    fun write(view: View) {
-        val intent = Intent(this, WriteActivity::class.java)
-        startActivity(intent)
     }
 }
