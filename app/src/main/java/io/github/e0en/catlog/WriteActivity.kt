@@ -30,7 +30,7 @@ class WriteActivity : AppCompatActivity() {
         }
     }
 
-    fun writeItem() {
+    private fun writeItem() {
         val categoryField = findViewById<EditText>(R.id.categoryText)
         val category = categoryField.text.asSequence().toString()
 
@@ -39,6 +39,8 @@ class WriteActivity : AppCompatActivity() {
 
         val now = Calendar.getInstance().time
 
-        CatLog(now, category, content)
+        val newLog = CatLog(now, category, content)
+
+        DbHelper(this).insertCatLog(newLog)
     }
 }
